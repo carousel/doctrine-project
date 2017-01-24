@@ -1,7 +1,7 @@
 <?php
 
     /**
-    * @Entity $Table(name="products")
+    * @Entity @Table(name="products")
     */
     class Product
     {

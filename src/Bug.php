@@ -67,7 +67,7 @@ use Doctrine\Common\Collections\ArrayCollection;
         }
         public function setDescription($description)
         {
-            $this->name = $description;
+            $this->description = $description;
         }
         public function getCreated()
         {
@@ -76,6 +76,14 @@ use Doctrine\Common\Collections\ArrayCollection;
         public function setStatus($status)
         {
             $this->status = $status;
+        }
+        public function setCreated($created)
+        {
+            $this->created = $created;
+        }
+        public function setReporter($reporter)
+        {
+            $this->reporter = $reporter;
         }
         public function getStatus()
         {
@@ -88,5 +96,8 @@ use Doctrine\Common\Collections\ArrayCollection;
         public function getProducts()
         {
             return $this->products;   
+        }
+        public function close(){
+            $this->status = "CLOSED";
         }
     }

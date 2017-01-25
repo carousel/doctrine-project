@@ -13,9 +13,13 @@ $conn = [
     'password' => 'bumerang',
     'host' => 'localhost',
     'driver' => 'pdo_mysql'
-    //'driver' => "pdo_sqlite",
-    //'driver' => "mysql",
-    //'path'   => __DIR__ . "/db.sqlite"
 ];
+/**
+ * Optional sqlite driver
+ */
+//$conn = [
+     //'driver' => "pdo_sqlite",
+     //'path'   => __DIR__ . "/db.sqlite"
+//];
 
 $entityManager = EntityManager::create($conn,$config);

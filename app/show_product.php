@@ -9,5 +9,5 @@
         exit(1);
     }
     
-    echo sprintf("Produce name is %s",$product->getName() . PHP_EOL);
+    echo sprintf("Product name is %s",$product->getName() . PHP_EOL);
 

@@ -4,8 +4,9 @@ use Doctrine\Common\Collections\ArrayCollection;
     /**
     * @Entity(repositoryClass="BugRepository") @Table(name="bugs")
     */
-    class Bug
+    class Bug 
     {
+        const VERSION = '0.0.1';
         /** @Id @Column (type="integer") @GeneratedValue **/
         protected $id;
         /** @Column (type="string") 
@@ -37,6 +38,7 @@ use Doctrine\Common\Collections\ArrayCollection;
         {
             $this->products = new ArrayCollection();
         }
+
         
         public function setEngineer($engineer)
         {

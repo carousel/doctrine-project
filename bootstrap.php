@@ -8,7 +8,7 @@ require_once "vendor/autoload.php";
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration([__DIR__ . "/src"],$isDevMode);
 
-if($env['name'] == 'desktop'){
+if($env['dbdriver'] == 'pdo_sqlite'){
     $conn = [
         'driver' => $env['dbdriver'],
         'path'   => $env['dbpath']

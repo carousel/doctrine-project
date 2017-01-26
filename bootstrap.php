@@ -2,24 +2,25 @@
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+$env = require_once ".env.php";
 require_once "vendor/autoload.php";
 
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration([__DIR__ . "/src"],$isDevMode);
 
-$conn = [
-    'dbname' => 'doctrine',
-    'user' => 'root',
-    'password' => 'bumerang',
-    'host' => 'localhost',
-    'driver' => 'pdo_mysql'
-];
-/**
- * Optional sqlite driver
- */
-//$conn = [
-     //'driver' => "pdo_sqlite",
-     //'path'   => __DIR__ . "/db.sqlite"
-//];
+if($env['name'] == 'desktop'){
+    $conn = [
+        'driver' => $env['dbdriver'],
+        'path'   => $env['dbpath']
+    ];
+}else{
+    $conn = [
+        'dbname' => $env['dbname'],
+        'user' => $env['dbuser'],
+        'password' => $env['dbpassword'],
+        'host' => $env['dbhost'],
+        'driver' => $env['dbdriver']
+    ];
+}
 
 $entityManager = EntityManager::create($conn,$config);

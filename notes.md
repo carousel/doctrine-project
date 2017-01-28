@@ -14,6 +14,7 @@
 -inverse side changes are ignored
 -unidirectional (owning side/mappedBy)
 -bidirectional (owning/mappedBy and inverse side/inversedBy)
+    -ArrayCollection
 -owning side check only
 -self referencing
 -@JoinColumn
@@ -32,4 +33,8 @@
     -One Host To Many Room
 -Guest(guests)
     -One Guest To Many Room
+
+#CONCEPT OF ARRAY COLLECTION
+-bidirectional relation
+-owning side updated
 

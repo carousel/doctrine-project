@@ -37,16 +37,16 @@ use Doctrine\Common\Collections\ArrayCollection;
         {
             return $this->name;
         }
-        public function setName($name)
+        public function setname($name)
         {
             $this->name = $name;
         }
-        public function addReportedBugs($bug)
+        public function addreportedbugs($bug)
         {
-            $this->reportedBugs[] = $bug;
+            $this->reportedbugs[] = $bug;
         }
-        public function assignedToBug($bug)
+        public function assignedtobug($bug)
         {
-            $this->assigneddBugs[] = $bug;
+            $this->assignedbugs[] = $bug;
         }
     }

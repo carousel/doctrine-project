@@ -38,6 +38,10 @@ use Doctrine\Common\Collections\ArrayCollection;
         {
             $this->products = new ArrayCollection();
         }
+        public function setReporter($reporter)
+        {
+            $this->reporter = $reporter;
+        }
 
         
         public function setEngineer($engineer)
@@ -82,10 +86,6 @@ use Doctrine\Common\Collections\ArrayCollection;
         public function setCreated($created)
         {
             $this->created = $created;
-        }
-        public function setReporter($reporter)
-        {
-            $this->reporter = $reporter;
         }
         public function getStatus()
         {

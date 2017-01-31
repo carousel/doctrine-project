@@ -1,10 +1,10 @@
 <?php
 
-/** @Entity */
-class Shop 
+/** @Entity(repositoryClass="ShopRepository") @Table(name="shops") */
+class Shop
 {
     /** @Id @Column(type="integer") @GeneratedValue */
-    private $id;
+    protected $id;
 
     /** @Embedded(class = "Money") */
     private $money;
@@ -12,9 +12,12 @@ class Shop
     {
         $this->money = $money;
     }
-    
     public function getCurrency()
     {
-        $this->money_currency = $this->money->getCurrency();
+        return $this->money->getCurrency();
+    }
+    public function getId()
+    {
+        return $this->id;
     }
 }

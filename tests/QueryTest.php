@@ -4,12 +4,14 @@ use PHPUnit\Framework\TestCase;
 class QueryTests extends TestCase
 {
     /**
-    * @test 
-    */
+     * Determine something
+     *
+     * @test
+     * @return void
+     */
     public function letsTest()
     {
-        $this->assertEquals(10,10);
+        $this->assertEquals(10, 10);
         $this->assertTrue(true);
     }
-
 }

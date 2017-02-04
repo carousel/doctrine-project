@@ -1,36 +1,35 @@
 <?php
 use Doctrine\Common\Collections\ArrayCollection;
 
-    /**
+/**
     * @Entity(repositoryClass="BugRepository") @Table(name="bugs")
     */
-    class Bug 
+    class Bug
     {
-        const VERSION = '0.0.1';
         /** @Id @Column (type="integer") @GeneratedValue **/
         protected $id;
-        /** @Column (type="string") 
+        /** @Column (type="string")
          * $var string
          */
         protected $description;
-        /** @Column (type="datetime") 
+        /** @Column (type="datetime")
          * $var DateTime
          */
         protected $created;
-        /** @Column (type="string") 
+        /** @Column (type="string")
          * $var string
          */
         protected $status;
         /**
-        * @ManyToOne(targetEntity="User",inversedBy="assignedBugs") 
+        * @ManyToOne(targetEntity="User",inversedBy="assignedBugs")
         */
         protected $engineer;
         /**
-        * @ManyToOne(targetEntity="User",inversedBy="reportedBugs") 
+        * @ManyToOne(targetEntity="User",inversedBy="reportedBugs")
         */
         protected $reporter;
         /**
-        * @ManyToMany(targetEntity="Product") 
+        * @ManyToMany(targetEntity="Product")
         */
         protected $products = null;
 
@@ -38,11 +37,6 @@ use Doctrine\Common\Collections\ArrayCollection;
         {
             $this->products = new ArrayCollection();
         }
-        public function setReporter($reporter)
-        {
-            $this->reporter = $reporter;
-        }
-
         
         public function setEngineer($engineer)
         {
@@ -87,19 +81,24 @@ use Doctrine\Common\Collections\ArrayCollection;
         {
             $this->created = $created;
         }
+        public function setReporter($reporter)
+        {
+            $this->reporter = $reporter;
+        }
         public function getStatus()
         {
             return $this->status;
         }
         public function assignToProduct($product)
         {
-           $this->products[]  = $product;
+            $this->products[]  = $product;
         }
         public function getProducts()
         {
-            return $this->products;   
+            return $this->products;
         }
-        public function close(){
+        public function close()
+        {
             $this->status = "CLOSED";
         }
     }

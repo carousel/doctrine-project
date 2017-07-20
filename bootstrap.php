@@ -6,14 +6,13 @@ $env = require_once ".env.php";
 require_once "vendor/autoload.php";
 
 $isDevMode = true;
-$config = Setup::createAnnotationMetadataConfiguration([__DIR__ . "/src"],$isDevMode);
 
-if($env['dbdriver'] == 'pdo_sqlite'){
+if ($env['dbdriver'] == 'pdo_sqlite') {
     $conn = [
         'driver' => $env['dbdriver'],
         'path'   => $env['dbpath']
     ];
-}else{
+} else {
     $conn = [
         'dbname' => $env['dbname'],
         'user' => $env['dbuser'],
@@ -23,4 +22,6 @@ if($env['dbdriver'] == 'pdo_sqlite'){
     ];
 }
 
-$entityManager = EntityManager::create($conn,$config);
+$config = Setup::createAnnotationMetadataConfiguration([__DIR__ . "/src"], $isDevMode);
+
+$entityManager = EntityManager::create($conn, $config);
